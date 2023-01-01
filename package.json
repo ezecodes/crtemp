@@ -1,8 +1,8 @@
 {
-  "name": "mktmp",
+  "name": "@jahdevelops/mktmp",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/index.js",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
@@ -17,7 +17,8 @@
   "homepage": "https://github.com/jahdevelops/app-generator/#readme",
   "type": "module",
   "bin": {
-    "mktmp": "bin/mktmp"
+    "mktmp": "bin/mktmp",
+    "@jahdevelops/mktmp": "bin/mktmp"
   },
   "publishConfig": {
     "access": "public"
