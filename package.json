@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/elijh-e/app-generator"
+    "url": "https://github.com/jahdevelops/app-generator"
   },
   "bugs": {
-    "url": "https://github.com/elijh-e/app-generator/issues"
+    "url": "https://github.com/jahdevelops/app-generator/issues"
   },
-  "homepage": "https://github.com/elijh-e/app-generator/#readme",
+  "homepage": "https://github.com/jahdevelops/app-generator/#readme",
   "type": "module",
   "bin": {
     "mktmp": "bin/mktmp"
@@ -28,7 +28,7 @@
   "engine": {
     "node": ">=18.0"
   },
-  "author": "",
+  "author": "jahdevelops",
   "license": "ISC",
   "dependencies": {
     "arg": "^5.0.2",
