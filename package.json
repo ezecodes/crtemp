@@ -7,6 +7,14 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/elijh-e/app-generator"
+  },
+  "bugs": {
+    "url": "https://github.com/elijh-e/app-generator/issues"
+  },
+  "homepage": "https://github.com/elijh-e/app-generator/#readme",
   "type": "module",
   "bin": {
     "mktmp": "bin/mktmp"
