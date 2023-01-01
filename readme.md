@@ -8,7 +8,7 @@ To generate files required it uses a file config object with set of rules to fol
 * The root directory object(signifying a folder) has `name` `dirs` and `files` properties
 * The `name` prop is the name of the folder
 * The `files` prop is an array containing a list of files represented by their filename and extention
-* The dirs(an array) is a repetition of the root directory with its object and properties as well
+* The `dirs` array is a repetition of the root directory with its object and properties as well
 
 ```javascript
   const config = {
