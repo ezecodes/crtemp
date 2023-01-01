@@ -1,5 +1,5 @@
 {
-  "name": "@jahdevelops/mktmp",
+  "name": "mktmp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,8 +17,7 @@
   "homepage": "https://github.com/jahdevelops/app-generator/#readme",
   "type": "module",
   "bin": {
-    "mktmp": "bin/mktmp",
-    "@jahdevelops/mktmp": "bin/mktmp"
+    "mktmp": "bin/mktmp"
   },
   "publishConfig": {
     "access": "public"
