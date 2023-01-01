@@ -1,5 +1,5 @@
 # App generator
-This package Scaffolds development code structures and generates the required files for a predefined app niche.
+This package Scaffolds code structures and generates the required files for a predefined app niche.
 
 ## Instalation
 
