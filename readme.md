@@ -10,8 +10,8 @@ Acceptable options and their aliases are `--git`, `--dep`, `--yes` and `-g`, `-d
 Their definitions are as follows:
 *  **`--git`**: Initialize a git repository
 *  **`---dep`**: Comfirms the installation of dependencies found in the generated `package.json` file
-* **`--yes`**: If this option is present, it skips all the prompt and generates the app using the default options
-To add a template, type the template name without any hyphens like so `mktmp -y react-app`. <br />
+* **`--yes`**: If this option is present, it skips all the prompt and generates the app using the default options.
+To select a template, type the template name without hyphens like so `mktmp -y react-app`. <br />
 **NB**: Currently supported templates are express and react apps with their mktmp template names as `express-app` and `react-app`.
 
 ## Contributing to the project
