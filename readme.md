@@ -1,11 +1,11 @@
 # App generator
-This cli app Scaffolds code structures and generates the required files for a predefined app niche.
+This cli app scaffolds code structures and generates the required files for a predefined app niche.
 
 ## Instalation
 Run `npm install mktmp` in the terminal to install the package
 
 ## How it works
-To use this app on the command line type mktmp. It will prompt for missing options.
+To use this app on the command line type `mktmp`. It will prompt for missing options.
 Acceptable options and their aliases are `--git`, `--dep`, `--yes` and `-g`, `-d`, `-y`.
 Their definitions are as follows:
 *  **`--git`**: Initialize a git repository
