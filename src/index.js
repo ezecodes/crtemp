@@ -79,12 +79,26 @@ async function promptForMissingOptions(options) {
 	}
 }
 
+function isTemplateSupported(template) {
+	const constantsArray = Object.values(configConstants);
+	const findIndex = constantsArray.findIndex(constant => constant === template)
+	if (findIndex === -1) {
+		return false
+	} 
+	return true
+}
+
 export default async function index(rawArgs) {
 	const cwdPath = path.normalize(process.cwd());
 	const rootDirName = 'make-template';
 
 	parseArgs(rawArgs)
 	.then(async options => {
+
+		if (!isTemplateSupported(options.template)) {
+			throw new Error(`The template passed "${options.template}" is not supported. Try adding it https://github.com/jahdevelops/app-generator`)
+		}
+
 		options = await promptForMissingOptions(options);
 		const workingTemplate = config.templates.find(i => i.name === options.template);
 		const rootDirPath = path.join(cwdPath, rootDirName, workingTemplate.name);
