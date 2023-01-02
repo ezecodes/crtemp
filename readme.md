@@ -11,7 +11,7 @@ Their definitions are as follows:
 *  **`--git`**: Initialize a git repository
 *  **`--dep`**: Comfirms the installation of dependencies found in the generated `package.json` file
 * **`--yes`**: If this option is present, it skips all the prompt and generates the app using the default options.
-To select a template, type the template name without hyphens like so `crtemp -y react-app`. <br />
+To select a template, type the template name without hyphens like so `npx crtemp -y react-app`. <br />
 **NB**: Currently supported templates are express and react apps with their crtemp template names as `express-app` and `react-app`.
 
 ## Contributing to the project
