@@ -1,9 +1,18 @@
 # App generator
-This package Scaffolds code structures and generates the required files for a predefined app niche.
+This cli app Scaffolds code structures and generates the required files for a predefined app niche.
 
 ## Instalation
+Run `npm install mktmp` in the terminal to install the package
 
 ## How it works
+To use this app on the command line type mktmp. It will prompt for missing options.
+Acceptable options and their aliases are `--git`, `--dep`, `--yes` and `-g`, `-d`, `-y`.
+Their definitions are as follows:
+* ####`--git`: Initialize a git repository
+* ####`---dep`: Comfirms the installation of dependencies found in the generated `package.json` file
+* ###`--yes`: If this option is present, it skips all the prompt and generates the app using the default options
+To add a template, type the template name without any hyphens like so `mktmp -y react-app.
+####NB: Currently supported templates are express and react apps with their mktmp template names as `express-app` and `react-app`.
 
 ## Contributing to the project
 At the moment this package only supports 2 app niches (exxpress-app and react-app) and can be found in the file config object above.
