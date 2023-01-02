@@ -23,7 +23,10 @@
     "access": "public"
   },
   "keywords": [
-    "cli app", "app app generator", "generate code structures/layouts"
+    "cli app",
+    "express app",
+    "app generator",
+    "generate code structures/layouts"
   ],
   "engine": {
     "node": ">=18.0"
