@@ -31,7 +31,6 @@ Adding support for various templates is very straight forward;
  If there be any need, a new folder should be created in the template files folder at `./src/templateFiles/`. The contents of the folder should only be unique files relating to the new template (package.json, .env files), files not under this category should be represented by the file name in the `files` array of the new template object.
  
  #### Generating template files
-
 To generate files required it uses a file config object with set of rules to follow ->
 * The root directory object(signifying a folder) has `name` `dirs` and `files` properties
 * The `name` prop is the name of the folder
