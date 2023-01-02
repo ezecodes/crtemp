@@ -5,11 +5,11 @@ This cli app scaffolds code structures and generates the required files for a pr
 Run `npm install crtemp` in the terminal to install the package
 
 ## How it works
-To use this app on the command line type `crtemp`. It will prompt for missing options.
+To use this app on the command line type `npx crtemp`. It will prompt for missing options.
 Acceptable options and their aliases are `--git`, `--dep`, `--yes` and `-g`, `-d`, `-y`.
 Their definitions are as follows:
 *  **`--git`**: Initialize a git repository
-*  **`---dep`**: Comfirms the installation of dependencies found in the generated `package.json` file
+*  **`--dep`**: Comfirms the installation of dependencies found in the generated `package.json` file
 * **`--yes`**: If this option is present, it skips all the prompt and generates the app using the default options.
 To select a template, type the template name without hyphens like so `crtemp -y react-app`. <br />
 **NB**: Currently supported templates are express and react apps with their crtemp template names as `express-app` and `react-app`.
