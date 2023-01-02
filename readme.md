@@ -15,7 +15,8 @@ To add a template, type the template name without any hyphens like so `mktmp -y 
 **NB**: Currently supported templates are express and react apps with their mktmp template names as `express-app` and `react-app`.
 
 ## Contributing to the project
-At the moment this package only supports 2 app niches (exxpress-app and react-app) and can be found in the file config object above.
+#### Adding Support for new templates
+At the moment this package only supports 2 app niches (express-app and react-app) and can be found in the file config object above.
 Adding support for various templates is very straight forward;
 * Update the `constants.js` file adding the new template name as a property. The `constants.js` file can be found at `./src/utils/constants.js`
 * Append a new object to `templates` object in the file config object. The appended object should represent the new template root directory. See example below
