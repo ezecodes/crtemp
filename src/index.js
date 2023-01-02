@@ -95,8 +95,8 @@ export default async function index(rawArgs) {
 	parseArgs(rawArgs)
 	.then(async options => {
 
-		if (!isTemplateSupported(options.template)) {
-			throw new Error(`The template passed "${options.template}" is not supported. Try adding it https://github.com/jahdevelops/app-generator`)
+		if (options.template !== undefined && !isTemplateSupported(options.template)) {
+			throw new Error(`The template passed "${options.template}" is not supported. Try adding it at https://github.com/jahdevelops/app-generator`)
 		}
 
 		options = await promptForMissingOptions(options);
