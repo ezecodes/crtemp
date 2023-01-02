@@ -16,7 +16,7 @@ To select a template, type the template name without hyphens like so `mktmp -y r
 
 ## Contributing to the project
 #### Adding Support for new templates
-At the moment this package only supports 2 app niches (express-app and react-app) and can be found in the file config object above.
+At the moment this package only supports 2 app niches (express-app and react-app) and can be found in the file config object.
 Adding support for various templates is very straight forward;
 * Update the `constants.js` file adding the new template name as a property. The `constants.js` file can be found at `./src/utils/constants.js`
 * Append a new object to `templates` object in the file config object. The appended object should represent the new template root directory. See example below
