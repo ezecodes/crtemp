@@ -41,3 +41,18 @@ To generate files required it uses a file config object with set of rules to fol
   }
 
 ```
+
+# Contributing to the project
+At the moment this package only supports 2 app niches (exxpress-app and react-app) and con be found in the file config object above.
+Adding support for various templates is very straight forward;
+* Update the `constants.js` file adding the new template name as a property. The `constants.js` file can be found at `./src/utils/constants.js`
+* Append a new object to `templates` object in the file config object. The appended object should represent the new template root directory. See example below
+```javascript
+  {
+    "name": constants[new_template_name],
+    "dirs": [],
+    "files": []
+  }
+ ```
+ NB: The `name` prop is gotten from the constants object.
+ If there be any need, a new folder should be created in the template files folder at `./src/templateFiles/`. The contents of the folder should be unique files relating to the new template (package.json, .env files).
