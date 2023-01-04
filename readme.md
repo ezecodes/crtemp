@@ -1,4 +1,4 @@
-# App generator
+# crtemp
 This cli app generates code templates
 
 ## Instalation
