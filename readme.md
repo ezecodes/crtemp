@@ -1,5 +1,5 @@
 # App generator
-This cli app scaffolds code structures and generates the required files for a predefined app niche.
+This cli app generates code templates
 
 ## Instalation
 Run `npm install crtemp` in the terminal to install the package
