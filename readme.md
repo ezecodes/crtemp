@@ -2,7 +2,7 @@
 This cli app generates code templates
 
 ## Instalation
-Run `npm install crtemp` in the terminal to install the package
+Run `npm install crtemp -g` to install as a global dependency, Or `npm install crtemp --D` to install as a dev dependency in the working directory.
 
 ## How it works
 To use this app on the command line type `npx crtemp`. It will prompt for missing options.
