@@ -1,10 +1,10 @@
 import arg from 'arg';
 import inquirer from 'inquirer';
 import {makeTemplates, initGit, installDependencies} from './main.js';
-import configConstants from './utils/constants.js';
+import { templateNames, configFileName} from './utils/constants.js';
 import chalk from 'chalk';
 import config from './configs/templateConfig.js';
-import {constants, access, mkdir, appendFile} from 'fs/promises';
+import {constants, access, mkdir, appendFile, readFile} from 'fs/promises';
 import Listr from 'listr';
 import path from 'path';
 
@@ -39,7 +39,7 @@ function parseArgs(passedArgs) {
 
 async function promptForMissingOptions(options) {
 	const {git, skipProtocols, template, installDependency} = options;
-	const defaultTemplate = configConstants.EXPRESS;
+	const defaultTemplate = templateNames.EXPRESS;
 	let questions = [], answers;
 
 	if (skipProtocols) {
@@ -67,7 +67,7 @@ async function promptForMissingOptions(options) {
 			type: 'list',
 			name: 'template',
 			message: 'Please select a template.',
-			choices: [configConstants.EXPRESS, configConstants.REACT],
+			choices: [templateNames.EXPRESS, templateNames.REACT],
 			default: defaultTemplate
 		})
 	};
@@ -80,8 +80,8 @@ async function promptForMissingOptions(options) {
 }
 
 function isTemplateSupported(template) {
-	const constantsArray = Object.values(configConstants);
-	const findIndex = constantsArray.findIndex(constant => constant === template)
+	const templateNamesArray = Object.values(templateNames);
+	const findIndex = templateNamesArray.findIndex(constant => constant === template)
 	if (findIndex === -1) {
 		return false
 	} 
@@ -89,26 +89,37 @@ function isTemplateSupported(template) {
 }
 
 export default async function index(rawArgs) {
-	const cwdPath = path.normalize(process.cwd());
+	let cwdPath = path.normalize(process.cwd());
+	let workingTemplate
 	const rootDirName = 'make-template';
 
 	parseArgs(rawArgs)
 	.then(async options => {
 
 		if (options.template !== undefined && !isTemplateSupported(options.template)) {
-			throw new Error(`The template passed "${options.template}" is not supported. Try adding it at https://github.com/jahdevelops/app-generator`)
+			console.log(`The template passed "${options.template}" is not supported. \nTry adding it at https://github.com/jahdevelops/app-generator`)
+			process.exit(1)
 		}
 
 		options = await promptForMissingOptions(options);
-		const workingTemplate = config.templates.find(i => i.name === options.template);
-		const rootDirPath = path.join(cwdPath, rootDirName, workingTemplate.name);
+		cwdPath = path.join(cwdPath);
+
+		try {
+			let workingTemplates = await readFile(path.join(cwdPath, configFileName), {encoding: 'utf8'})
+			workingTemplates = JSON.parse(workingTemplates)
+		// console.log(workingTemplates)
+			workingTemplate = workingTemplates.find(i => i.name === options.template);
+		} catch (err) {
+			console.error(err)
+			workingTemplate = config.templates.find(i => i.name === options.template);
+		}
+
 
 		try {
 			await access(cwdPath, constants.W_OK | constants.R_OK)
 
 			try {
-				await mkdir(rootDirPath, {recursive: true});
-				options = {...options, rootDirPath, workingTemplate}
+				options = {...options, cwdPath, workingTemplate}
 
 				const tasks = new Listr([
 					{	
@@ -117,12 +128,12 @@ export default async function index(rawArgs) {
 					}, 
 					{
 						title: 'Initialize Git',
-						task: () => initGit({cwdPath: rootDirPath}),
+						task: () => initGit({cwdPath}),
 						enabled: () => options.git
 					},
 					{
 						title: 'Installing dependencies',
-						task: () => installDependencies({cwdPath: rootDirPath, template: options.template}),
+						task: () => installDependencies({cwdPath, template: options.template}),
 						enabled: () => options.installDependency
 					}
 				])

@@ -1,9 +1,9 @@
-import constants from '../utils/constants.js';
+import {templateNames} from '../utils/constants.js';
 
 const config = {
 	"templates": [
 		{
-			"name": constants.EXPRESS,
+			"name": templateNames.EXPRESS,
 			"dirs": [
 				{
 					"name": "src",
@@ -28,7 +28,7 @@ const config = {
 			]
 		},
 		{
-			"name": constants.REACT,
+			"name": templateNames.REACT,
 			"dirs": [],
 			"files": []
 		}

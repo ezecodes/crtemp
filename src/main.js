@@ -1,8 +1,10 @@
 import chalk from 'chalk';
 import path from 'path';
-import { mkdir, appendFile, copyFile} from 'fs/promises';
+import { mkdir, appendFile, copyFile, writeFile} from 'fs/promises';
+import { access, constants } from 'fs'
 import {execa} from 'execa';
 import { projectInstall } from 'pkg-install';
+import {configFileName} from './utils/constants.js'
 
 /**
 	@param {String} rootPath
@@ -82,6 +84,23 @@ async function createRootFiles(rootFilesPath, files) {
 	})
 }
 
+async function validate_config_file(config) {
+	// body...
+}
+
+async function create_config_file(workingTemplate, cwdPath) {
+	let newArray = new Array()
+	newArray.push(workingTemplate)
+	const crtemp_filename = configFileName
+	const crtemp_json_filename_path = path.join(cwdPath, crtemp_filename)
+	
+	access(crtemp_json_filename_path, constants.F_OK, async err => {
+		if (err) {
+			await appendFile(crtemp_json_filename_path, JSON.stringify(newArray, null, 4))
+		}
+	})	
+}
+
 /**
 	@param {Object} options
 	@param {Boolean} options.git
@@ -90,10 +109,11 @@ async function createRootFiles(rootFilesPath, files) {
 	@param {String} options.template
 */
 export async function makeTemplates(options) {
-	const { rootDirPath, workingTemplate} = options;
+	const { cwdPath, workingTemplate} = options;
 	try {
-		mkdirRecursively(rootDirPath, workingTemplate.dirs)
-		createRootFiles(rootDirPath, workingTemplate.files)
+		mkdirRecursively(cwdPath, workingTemplate.dirs)
+		createRootFiles(cwdPath, workingTemplate.files)
+		create_config_file(workingTemplate, cwdPath)
 	} catch (err) {
 		console.error(err)
 	}
