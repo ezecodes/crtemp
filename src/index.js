@@ -110,7 +110,6 @@ export default async function index(rawArgs) {
 		// console.log(workingTemplates)
 			workingTemplate = workingTemplates.find(i => i.name === options.template);
 		} catch (err) {
-			console.error(err)
 			workingTemplate = config.templates.find(i => i.name === options.template);
 		}
 
