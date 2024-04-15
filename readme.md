@@ -1,4 +1,3 @@
-# crtemp
 ## Instalation
 Run `npm install crtemp -g` to install as a global dependency, Or `npm install crtemp --D` to install as a dev dependency in the working directory.
 
